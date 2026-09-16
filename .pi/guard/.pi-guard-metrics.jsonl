@@ -1,3 +1,6 @@
 {"kind":"nudge","toolName":"bash","rule":"cat-read","tool":"read","ts":1789558550445}
 {"kind":"enrich","matched":false,"toolName":"bash","ts":1789558772590}
 {"kind":"enrich","matched":false,"toolName":"bash","ts":1789558815213}
+{"kind":"enrich","matched":false,"toolName":"bash","ts":1789559127818}
+{"kind":"enrich","matched":false,"toolName":"bash","ts":1789559136210}
+{"kind":"enrich","matched":false,"toolName":"bash","ts":1789559441253}
