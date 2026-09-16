@@ -4,3 +4,7 @@
 {"kind":"enrich","matched":false,"toolName":"bash","ts":1789559127818}
 {"kind":"enrich","matched":false,"toolName":"bash","ts":1789559136210}
 {"kind":"enrich","matched":false,"toolName":"bash","ts":1789559441253}
+{"kind":"enrich","matched":false,"toolName":"bash","ts":1789559780230}
+{"kind":"enrich","matched":false,"toolName":"bash","ts":1789559789874}
+{"kind":"enrich","matched":true,"rule":"deepseek-invalid-json","toolName":"bash","ts":1789559797075}
+{"kind":"enrich","matched":true,"rule":"deepseek-invalid-json","toolName":"bash","ts":1789559804785}
