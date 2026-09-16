@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for required files
+        run: |
+          echo "Checking required files..."
+          [ -f README.md ] && echo "✓ README.md" || (echo "✗ README.md missing" && exit 1)
+          [ -f LICENSE ] && echo "✓ LICENSE" || (echo "✗ LICENSE missing" && exit 1)
+          [ -f CONTRIBUTING.md ] && echo "✓ CONTRIBUTING.md" || (echo "✗ CONTRIBUTING.md missing" && exit 1)
+          [ -f CODE_OF_CONDUCT.md ] && echo "✓ CODE_OF_CONDUCT.md" || (echo "✗ CODE_OF_CONDUCT.md missing" && exit 1)
+          [ -f SECURITY.md ] && echo "✓ SECURITY.md" || (echo "✗ SECURITY.md missing" && exit 1)
+          [ -f .gitignore ] && echo "✓ .gitignore" || (echo "✗ .gitignore missing" && exit 1)
+
+      - name: Validate skill directories
+        run: |
+          echo "Validating skill directories..."
+          for skill in skills/*/; do
+            if [ -d "$skill" ]; then
+              skill_name=$(basename "$skill")
+              echo "Checking $skill_name..."
+              [ -f "${skill}SKILL.md" ] && echo "  ✓ SKILL.md" || echo "  ⚠ SKILL.md missing"
+            fi
+          done
+
+      - name: Check for large files
+        run: |
+          echo "Checking for large files (>10MB)..."
+          find . -type f -size +10M -not -path "./.git/*" -not -path "./node_modules/*" | while read file; do
+            echo "⚠ Large file: $file"
+          done
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run markdownlint
+        uses: docker://docker.io/06kellyjac/markdownlint-cli:latest
+        with:
+          args: "**/*.md"
+
+  link-check:
+    name: Link Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check links in markdown files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          config-file: '.github/markdown-link-check-config.json'
