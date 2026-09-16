@@ -1,20 +1,28 @@
-# Skills Repository
+# Skills
 
-This directory contains various skills for the Pi coding agent.
+A collection of agent skills for coding workflows.
 
-## List of Skills
+## What's Inside
 
-- `catppuccin-palette` - Provides Catppuccin color palette integration.
-- `opentui` - Build terminal UIs with OpenTUI.
-- `skill-creator` - Tool for creating new skills.
-- `skill-herdr` - Control Herdr, a terminal multiplexer for coding agents.
+Each skill is a self-contained module that extends a coding agent's capabilities. They're organized under the `skills/` directory and can be plugged into tools like **Pi**, **Opencode**, **Cline**, **CMP**, and others.
 
-Each skill may contain its own documentation (SKILL.md) and implementation details.
+Some skills are built for core functionality (palette references, terminal UIs, CLI multiplexing, skill creation), while others focus on design, code generation, and visual output.
 
-## Usage
+## Structure
 
-Refer to each skill's directory for specific instructions on how to enable and use the skill.
+```
+skills/
+├── catppuccin-palette/   — Color palette references
+├── opentui/              — Terminal UI framework
+├── skill-creator/        — Skill authoring & evaluation tool
+├── skill-herdr/          — Terminal multiplexer control
+└── skills/               — Community & third-party skills
+```
+
+## Adding a Skill
+
+Copy or symlink a skill directory into `skills/`, then reference its `SKILL.md` in your agent's configuration. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE) for details.
