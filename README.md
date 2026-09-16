@@ -2,6 +2,11 @@
 
 A collection of agent skills for coding workflows.
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/FLT18355/Skills/actions/workflows/ci.yml/badge.svg)](https://github.com/FLT18355/Skills/actions/workflows/ci.yml)
+[![GitHub issues](https://img.shields.io/github/issues/FLT18355/Skills)](https://github.com/FLT18355/Skills/issues)
+[![GitHub stars](https://img.shields.io/github/stars/FLT18355/Skills?style=social)](https://github.com/FLT18355/Skills/stargazers)
+
 ## What's Inside
 
 Each skill is a self-contained module that extends a coding agent's capabilities. They're organized under the `skills/` directory and can be plugged into tools like **Pi**, **Opencode**, **Cline**, **CMP**, and others.
